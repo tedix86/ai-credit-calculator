@@ -1,0 +1,22 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Production
+dist
+build
+
+# Misc
+.DS_Store
+*.log
+
+# Environment
+.env
+.env.local
+
+# Editor
+.vscode
+.idea
+*.swp
+*.swo
