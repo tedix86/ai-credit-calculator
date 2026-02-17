@@ -133,10 +133,14 @@ function App() {
     updateView({ settings });
   };
 
-  // Import view
-  const handleImportView = (importedView) => {
-    setCurrentView(importedView);
-    handleSaveView();
+  // Import views (accepts array)
+  const handleImportViews = (importedViews) => {
+    importedViews.forEach(view => saveView(view));
+    const updatedViews = loadViews();
+    setSavedViews(updatedViews);
+    if (importedViews.length > 0) {
+      setCurrentView(importedViews[0]);
+    }
   };
 
   if (!currentView) {
@@ -164,7 +168,8 @@ function App() {
           />
           <ExportImport
             currentView={currentView}
-            onImport={handleImportView}
+            savedViews={savedViews}
+            onImport={handleImportViews}
           />
         </div>
 
